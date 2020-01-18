@@ -37,8 +37,6 @@ body{
     width: 70%;
     overflow: scroll;
     form{
-      display: flex;
-      justify-content: space-around;
       .required{
         .address{
           width: 250px;
@@ -70,7 +68,6 @@ body{
       }
       .submit{
         height: 30px;
-        margin-top: 250px;
       }
     }
     .contents2{
@@ -81,11 +78,6 @@ body{
         display: flex;
         &__left{
           padding-right: 20px;
-          &--image{
-            height: 150px;
-            width: 150px;
-            border: solid 1px;
-          }
         }
         &__right{
           width: calc(100%-100px);

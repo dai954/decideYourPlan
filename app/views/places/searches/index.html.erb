@@ -1,0 +1,92 @@
+<div class="date">日付　<%= strDate(@dateTime1) %></div>
+<div class="time_for">時間　<%= strTime(@dateTime1, @dateTime2) %></div>
+<br>
+到着  <%= addHour(@dateTime1) %><br>
+ランチ  店名:<%= "#{@restaurant2.name}"%> <%= addHour(@dateTime1) %>〜<%= addHourLunch(@dateTime1) %><br>
+<%= "#{@place.name}" %> <%= addHourMove1(@dateTime1) %>〜<%= addHourMain(@dateTime1) %><br>
+ディナー  店名:<%= "#{@restaurant1.name}"%> <%= addHourMove2(@dateTime1) %>〜<%= addHourDinner(@dateTime1) %><br>
+
+<div class = "content">
+  <div>
+    <h1> <%= addHour(@dateTime1) %> </h1>
+    <h2> <%= "#{@restaurant2.name}"%> </h2>
+    <h3>タイトル</h3>
+    <p> 文章 </p>
+  </div>
+    <%= image_tag "https://d1f5hsy4d47upe.cloudfront.net/00/00495b8ffae871aa0af681fa1e54a49c_w.jpg", alt: "sample image", size: '400x250' %>
+  <div>
+  </div>
+</div>
+
+<div class = "content">
+  <div>
+    <%= image_tag "#{@place.image}", size: '400x250' %>
+  </div>
+  <div class = "article">
+    <h1> <%= addHourMove1(@dateTime1) %> </h1>
+    <h2> <%= "#{@place.name}" %> </h2>
+    <h3 id = "title1" >タイトル</h3>
+    <p> 文章 </p>
+  </div>
+</div>
+
+<div class = "content">
+  <div>
+    <h1> <%= addHourMove2(@dateTime1) %> </h1>
+    <h2> <%= "#{@restaurant1.name}"%> </h2>
+    <h3>タイトル</h3>
+    <p> 文章 </p>
+  </div>
+  <div>
+      <%= image_tag "https://d1f5hsy4d47upe.cloudfront.net/b0/b05a4491fe89b6538233fde6a97be8b9_w.jpg", alt: "sample image", size: '400x250' %>
+  </div>
+</div>
+
+
+<!--
+
+<h1>メインスポット</h1>
+<div class="content">
+  <div class="content__left">
+    <div class="content__left--image"><%= image_tag "#{@place.image}", :size =>'150x150' %></div>
+  </div>
+  <div class="content__right">
+    <div class="content__right__top">
+      <%= @place.name %>
+    </div>
+    <div class="content__right__top">
+      <%= @place.address %>
+    </div>
+    <div class="content__right__top">
+      tel: <%= @place.tel %>
+    </div>
+    <div class="content__right__top">
+      <%= link_to "#{@place.link}", "#{@place.link}" %>
+    </div>
+  </div>
+</div>
+
+
+<h2>ディナー</h2>
+<% @restaurants.each do |restaurant| %>
+  <div class="content">
+    <div class="content__right">
+      <div class="content__right__top">
+        <%= restaurant.name %>
+      </div>
+      <div class="content__right__top">
+        <%= restaurant.address %>
+      </div>
+      <div class="content__right__top">
+        tel: <%= restaurant.tel %>
+      </div>
+      <div class="content__right__top">
+       食べログ <%= link_to "#{restaurant.link}", "#{restaurant.link}" %>
+      </div>
+      <div class="content__right__bottom">
+      </div>
+    </div>
+  </div>
+<% end %>
+
+-->
