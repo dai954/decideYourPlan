@@ -1,6 +1,7 @@
 class Places::SearchesController < ApplicationController
 
   def index
+    binding.pry
     number = params[:mainPlace]
     @place = Place.find(number.to_i - 1)
     @restaurants = @place.restaurants

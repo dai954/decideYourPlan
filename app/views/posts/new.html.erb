@@ -1,0 +1,10 @@
+<div class="content__title">
+  あなたのプランを教えてください
+</div>
+
+<%= form_with model: @post, class: :form, local: true do |form| %>
+  行った場所 <%= form.text_field :place, placeholder: :"海遊館、ユニバーサルスタジオジャパン、etc", class: :form__title %> <br>
+  おすすめレストラン <%= form.text_field :restaurant, placeholder: :レストラン, class: :form__title %> <br>
+  <%= form.text_area :content, placeholder: :その他おすすめポイント, class: :form__text %> <br>
+  <%= form.submit '投稿する', class: :form__btn %>
+<% end %>

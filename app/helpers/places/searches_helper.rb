@@ -18,46 +18,13 @@ module Places::SearchesHelper
 
   end
 
-  def addHour(time)
+  
+  def addHour(time, number)
     timex1 = Time.parse("#{time}")
-    timex = timex1 + 60 * 60
+    timex = timex1 + 60 * number
     strTimex = timex.strftime("%H:%M")
     "#{strTimex}"
   end
 
-  def addHourLunch(time)
-    timex1 = Time.parse("#{time}")
-    timex = timex1 + 60 * 120
-    strTimex = timex.strftime("%H:%M")
-    "#{strTimex}"
-  end
-
-  def addHourMove1(time)
-    timex1 = Time.parse("#{time}")
-    timex = timex1 + 60 * 150
-    strTimex = timex.strftime("%H:%M")
-    "#{strTimex}"
-  end
-
-  def addHourMain(time)
-    timex1 = Time.parse("#{time}")
-    timex = timex1 + 60 * 360
-    strTimex = timex.strftime("%H:%M")
-    "#{strTimex}"
-  end
-
-  def addHourMove2(time)
-    timex1 = Time.parse("#{time}")
-    timex = timex1 + 60 * 420
-    strTimex = timex.strftime("%H:%M")
-    "#{strTimex}"
-  end
-
-  def addHourDinner(time)
-    timex1 = Time.parse("#{time}")
-    timex = timex1 + 60 * 480
-    strTimex = timex.strftime("%H:%M")
-    "#{strTimex}"
-  end
 
 end
