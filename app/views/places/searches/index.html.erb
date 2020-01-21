@@ -1,14 +1,14 @@
 <div class="date">日付　<%= strDate(@dateTime1) %></div>
 <div class="time_for">時間　<%= strTime(@dateTime1, @dateTime2) %></div>
 <br>
-到着  <%= addHour(@dateTime1) %><br>
-ランチ  店名:<%= "#{@restaurant2.name}"%> <%= addHour(@dateTime1) %>〜<%= addHourLunch(@dateTime1) %><br>
-<%= "#{@place.name}" %> <%= addHourMove1(@dateTime1) %>〜<%= addHourMain(@dateTime1) %><br>
-ディナー  店名:<%= "#{@restaurant1.name}"%> <%= addHourMove2(@dateTime1) %>〜<%= addHourDinner(@dateTime1) %><br>
+到着  <%= addHour(@dateTime1, 60) %><br>
+ランチ  店名:<%= "#{@restaurant2.name}"%> <%= addHour(@dateTime1, 60) %>〜<%= addHour(@dateTime1, 120) %><br>
+<%= "#{@place.name}" %> <%= addHour(@dateTime1, 150) %>〜<%= addHour(@dateTime1, 360) %><br>
+ディナー  店名:<%= "#{@restaurant1.name}"%> <%= addHour(@dateTime1, 420) %>〜<%= addHour(@dateTime1, 480) %><br>
 
 <div class = "content">
   <div>
-    <h1> <%= addHour(@dateTime1) %> </h1>
+    <h1> <%= addHour(@dateTime1, 60) %> </h1>
     <h2> <%= "#{@restaurant2.name}"%> </h2>
     <h3>タイトル</h3>
     <p> 文章 </p>
@@ -23,7 +23,7 @@
     <%= image_tag "#{@place.image}", size: '400x250' %>
   </div>
   <div class = "article">
-    <h1> <%= addHourMove1(@dateTime1) %> </h1>
+    <h1> <%= addHour(@dateTime1, 150) %> </h1>
     <h2> <%= "#{@place.name}" %> </h2>
     <h3 id = "title1" >タイトル</h3>
     <p> 文章 </p>
@@ -32,7 +32,7 @@
 
 <div class = "content">
   <div>
-    <h1> <%= addHourMove2(@dateTime1) %> </h1>
+    <h1> <%= addHour(@dateTime1, 420) %> </h1>
     <h2> <%= "#{@restaurant1.name}"%> </h2>
     <h3>タイトル</h3>
     <p> 文章 </p>
