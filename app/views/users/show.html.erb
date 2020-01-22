@@ -1,3 +1,17 @@
+<% if current_user.try(:admin?) %>
+      <div class="page-header">
+        <h1>管理者マイページ</h1>
+      </div>
+      <p class="admin_btn col-xs-offset-1 col-xs-10 col-xs-offset-1"><%= link_to "管理画面", "/admin" %></p>
+  <% else %>
+    <div class="page-header">
+      <h1>マイページ<br>
+        <small><%= current_user.nickname %>さん、こんにちは！</small>
+      </h1>
+    </div>
+    <p>マイページではプラン一覧を確認できます。</p>
+<% end %>
+
 <div class="postTitle">
   <%= @user.nickname %>さんのプラン一覧
 </div>
