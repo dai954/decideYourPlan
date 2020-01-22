@@ -1,3 +1,9 @@
+<form action="/places/searches">
+  <input type='text' id="keyword" class="form-control" placeholder="行きたい場所を検索してください">
+  <button type="button" id="submit" class="btn">検索</button>
+</form>
+<ul id="list"></ul>
+
 <h3>条件を入力してください(*は必須)</h3>
 <form action="/places/searches">
   行きたい場所を選んでください<br>
@@ -11,6 +17,9 @@
     <option value="7">大阪城</option>
     <option value="8">梅田スカイビル</option>
   </select> *<br>
+
+  <div id="prefecture">都道府県から選ぶ</div>
+  <h1>ここから選ぶ</h1>
 
   出発地<br>
   <input type="text" class="address" placeholder="出発地の住所を入力してください"> *<br>

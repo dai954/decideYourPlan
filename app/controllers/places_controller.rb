@@ -10,6 +10,9 @@ class PlacesController < ApplicationController
   def show
   end
 
+  def searchword
+  end
+
 end
 
 # {"date1"=>"", "time1"=>"", "time2"=>"", "controller"=>"places", "action"=>"search"}
