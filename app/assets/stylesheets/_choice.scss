@@ -1,0 +1,66 @@
+// ドロップダウンメニューのCSS
+      /* メニューバーの装飾 */
+      nav{
+        width:100%;
+    }
+    .main_menu{
+        margin-top: 0; /*メニューバーの外側の余白*/
+        padding: 0;/*メニューバーの内側の余白*/
+        background-color: #20b2aa; /*バーの背景色*/
+    }
+    .main_menu li{
+        float:left; /*横並びに配置*/
+        list-style: none; /*リストの記号を消す*/
+        width:25%; /*メニュー項目の横幅*/
+        position:relative; /*サブメニュー表示の基準位置にする*/
+    }
+    .main_menu li a{
+    background-color: #20b2aa; 
+    color: #fff;
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    display: block; 
+    }
+    .main_menu li a:hover{
+        background-color: #afeeee;
+        color: #d00;
+    }
+
+
+        /* サブメニュー（子供）項目の装飾 */
+    .main_menu ul{
+        margin: 0;
+        padding: 0;
+        display: none;/*標準で非表示にしておく*/
+        position: absolute;/*絶対配置にする*/
+        width:100%;
+    }
+    .main_menu ul li{
+        width: 100%;
+        border-top: 1px solid #fff;
+    }
+    .main_menu ul li a{
+        line-height: 35px;
+        text-align: left;
+        padding-left: 5px;
+        font-weight: normal;
+    }
+    .main_menu li a:hover{
+        background-color: #afeeee;
+        color: #050;
+    }
+
+
+        /* サブメニュー（孫）項目の装飾 */
+    .main_menu ul ul{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: none;/*標準で非表示にしておく*/
+    position: absolute;/*絶対配置*/
+    top: -1px;/*1px上方向にずらす（上に1pxの枠線をひくから）*/
+    left: 100%;/*基準位置からの距離を親ボックスの幅100%に（右側に表示されるように）*/
+    border-left: 1px solid #fff;
+    }

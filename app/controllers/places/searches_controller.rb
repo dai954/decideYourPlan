@@ -1,16 +1,15 @@
 class Places::SearchesController < ApplicationController
 
   def index
-    binding.pry
-    number = params[:mainPlace]
-    @place = Place.find(number.to_i - 1)
+    @place = Place.find(params[:placeid])
     @restaurants = @place.restaurants
     @restaurant1 = Restaurant.find(1)
     @restaurant2 = Restaurant.find(2)
     
+  # change dataType in places_helper.rb
     @dateTime1 = params[:time1]
     @dateTime2 = params[:time2]
-    # change dataType in places_helper.rb
+
 
   end
 
