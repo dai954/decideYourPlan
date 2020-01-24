@@ -1,5 +1,6 @@
 class PlacesController < ApplicationController
   def index
+    # binding.pry
     @places = Place.all
   end
 
@@ -11,6 +12,12 @@ class PlacesController < ApplicationController
   end
 
   def searchword
+    @places = Place.search(params[:keyword])
+  end
+
+  def searchresult
+    @place = Place.find(params[:key])
+    @places = Place.all
   end
 
 end

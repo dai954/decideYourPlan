@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   collection do
     get 'searchword'
   end
+  collection do
+    get 'searchresult'
+  end
 end
   resources :posts
   resources :users, only: :show
