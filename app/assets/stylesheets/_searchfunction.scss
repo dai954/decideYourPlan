@@ -1,12 +1,57 @@
+// 検索のCSS
+.search_function{
+  margin-top: 30px;
+  text-align: center;
+}
+
+#keyword {
+  display: inline-block;
+  border-radius: 5px;
+  width: 50%;
+  height: 40px;
+  border: 1px solid #ccc;
+}
+#submit {
+  display: inline-block;
+  border-radius: 5px;
+  height: 40px;
+  background-color: #6495ed;
+  color: #fff;
+  padding: 5.5px 20px;
+  vertical-align: top;
+}
+
+#list {
+  padding: 0;
+  margin: 0 auto;
+  width: 50%;
+  list-style: none;
+}
+
+li {
+  border-radius: 5px;
+  box-shadow: 0.5px 0.5px 1px 1px rgba(0,0,0,0.1) inset;
+  background-color: #eee;
+  margin: 10px;
+  padding: 10px;
+}
+
+.form-group {
+  width: 75%;
+  margin: 20px auto;
+  text-align: center;
+}
+
+
 // ドロップダウンメニューのCSS
       /* メニューバーの装飾 */
       nav{
         width:100%;
+        margin-left: 183px;
     }
     .main_menu{
         margin-top: 0; /*メニューバーの外側の余白*/
         padding: 0;/*メニューバーの内側の余白*/
-        background-color: #20b2aa; /*バーの背景色*/
     }
     .main_menu li{
         float:left; /*横並びに配置*/
@@ -15,8 +60,7 @@
         position:relative; /*サブメニュー表示の基準位置にする*/
     }
     .main_menu li a{
-    background-color: #20b2aa; 
-    color: #fff;
+    color: black;
     line-height: 40px;
     text-align: center;
     text-decoration: none;
