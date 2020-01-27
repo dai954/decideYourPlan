@@ -1,9 +1,6 @@
-<form action="/places/searchword">
-  <input name="keyword" type='text' id="keyword" class="form-control" placeholder="行きたい場所を検索してください">
-  <button type="submit" id="submit" class="btn">検索</button>
-</form>
-<ul id="list"></ul>
+<%= render partial: "searchfunction" %><br>
 
+<br>
 ここに行く↓
 <div class="content">
   <div class="content__left">
@@ -25,60 +22,5 @@
   </div>
 </div>
 
-<h3>条件を入力してください(*は必須)</h3>
-<form action="/places/searches">
-  行きたい場所を選んでください<br>
-  <select name="mainPlace">
-    <option value="1">おすすめ</option>
-    <option value="2">海遊館</option>
-    <option value="3">USJ</option>
-    <option value="4">なんばシティ</option>
-    <option value="5">あべのハルカス</option>
-    <option value="6">天王寺動物園</option>
-    <option value="7">大阪城</option>
-    <option value="8">梅田スカイビル</option>
-  </select> *<br>
-
-  <div id="prefecture">都道府県から選ぶ</div>
-  <h1>ここから選ぶ</h1>
-
-  出発地<br>
-  <input type="text" class="address" placeholder="出発地の住所を入力してください"> *<br>
-  お出かけの日時を入力してください<br>
-  <%# <input type="date" class="date" name="date1"> *<br> %>
-  <input type="datetime-local" class="time" name="time1">〜<input type="datetime-local" name="time2"> *<br>
-  あなたの性別は？<br>
-  <label>
-    <input type="radio" name="RadioGroup1" value="20">男性
-  </label>
-  <label>
-    <input type="radio" class="female" class name="RadioGroup1" value="21">女性 *
-  </label><br>
-  お出かけする人数を選んでください<br>
-  <select>
-    <option value="101">1人</option>
-    <option value="102">2人</option>
-    <option value="103">3人</option>
-    <option value="104">4人</option>
-    <option value="105">5人</option>
-    <option value="106">6人</option>
-    <option value="107">7人</option>
-    <option value="108">8人以上</option>
-  </select> *<br>
-  食の好みはありますか？
-  <select>
-    <option value="201">特になし</option>
-    <option value="202">日本食</option>
-    <option value="203">イタリアン</option>
-    <option value="204">中華</option>
-    <option value="205">フランス料理</option>
-    <option value="206">タイ料理</option>
-    <option value="207">ラーメン</option>
-    <option value="208">肉料理</option>
-  </select><br>
-
-  <input type="submit" value="条件を送信する" class="submit">
-  <input type="hidden" name="placeid" value=<%="#{@place.id}"%>>
-</form>
-
+<%= render partial: "form" %>
 <%= render partial: "place"%>

@@ -1,19 +1,21 @@
-<div class="date">日付　<%= strDate(@dateTime1) %></div>
-<div class="time_for">時間　<%= strTime(@dateTime1, @dateTime2) %></div>
+<div class="date">日付  <%= strDate(@dateTime1) %></div>
+<div class="time_for">時間  <%= strTime(@dateTime1, @dateTime2) %></div>
 <br>
-到着  <%= addHour(@dateTime1, 60) %><br>
-ランチ  店名:<%= "#{@restaurant2.name}"%> <%= addHour(@dateTime1, 60) %>〜<%= addHour(@dateTime1, 120) %><br>
+到着  <%= addHour(@dateTime1, @map_duration) %><br>
+ランチ  店名:<%= "#{@restaurant1.name}"%> <%= addHour(@dateTime1, 60) %>〜<%= addHour(@dateTime1, 120) %><br>
 <%= "#{@place.name}" %> <%= addHour(@dateTime1, 150) %>〜<%= addHour(@dateTime1, 360) %><br>
 ディナー  店名:<%= "#{@restaurant1.name}"%> <%= addHour(@dateTime1, 420) %>〜<%= addHour(@dateTime1, 480) %><br>
 
+<h1>サンプル時間<%= "#{@map_duration}" %></h1>
+
 <div class = "content">
   <div>
-    <h1> <%= addHour(@dateTime1, 60) %> </h1>
-    <h2> <%= "#{@restaurant2.name}"%> </h2>
+    <h1> <%= addHour(@dateTime1, @map_duration) %> </h1>
+    <h2> <%= "#{@restaurant1.name}"%> </h2>
     <h3>タイトル</h3>
     <p> 文章 </p>
   </div>
-    <%= image_tag "https://d1f5hsy4d47upe.cloudfront.net/00/00495b8ffae871aa0af681fa1e54a49c_w.jpg", alt: "sample image", size: '400x250' %>
+    <%= image_tag "https://d1f5hsy4d47upe.cloudfront.net/29/2957814d542011b580346a92cc201ad8_w.jpg", alt: "sample image", size: '400x250' %>
   <div>
   </div>
 </div>
@@ -23,22 +25,23 @@
     <%= image_tag "#{@place.image}", size: '400x250' %>
   </div>
   <div class = "article">
-    <h1> <%= addHour(@dateTime1, 150) %> </h1>
+    <h1> <%= addHour(@dateTime1, 2000) %> </h1>
     <h2> <%= "#{@place.name}" %> </h2>
-    <h3 id = "title1" >タイトル</h3>
+    <h3>タイトル</h3>
     <p> 文章 </p>
   </div>
 </div>
 
+
 <div class = "content">
   <div>
     <h1> <%= addHour(@dateTime1, 420) %> </h1>
-    <h2> <%= "#{@restaurant1.name}"%> </h2>
+    <h2> <%= "#{@restaurant_name}"%> </h2>
     <h3>タイトル</h3>
-    <p> 文章 </p>
+    <p> <%= "#{@restaurant_text}"%> </p>
   </div>
   <div>
-      <%= image_tag "https://d1f5hsy4d47upe.cloudfront.net/b0/b05a4491fe89b6538233fde6a97be8b9_w.jpg", alt: "sample image", size: '400x250' %>
+      <%= image_tag "#{@restaurant_image}", alt: "sample image", size: '400x250' %>
   </div>
 </div>
 

@@ -1,12 +1,18 @@
+<form action="/places/searchword" class="search_function">
+  <input name="keyword" type='text' id="keyword" class="form-control" placeholder="行きたい場所を検索してください">
+  <button type="submit" id="submit" class="btn">検索</button>
+</form>
+
 <nav>
     <ul class="main_menu">
         <li><a href="#"> 都道府県から探す</a>
             <ul>
                 <li><a href="">大阪府</a>
                     <ul>
-                        <li><a href="#">海遊館</a></li>
-                        <li><a href="#">USJ</a></li>
-                        <li><a href="#">大阪城</a></li>
+                        <li><%= link_to "海遊館", searchresult_places_path(key: 1) %></li>
+                        <li><%= link_to "USJ", searchresult_places_path(key: 2) %></li>
+                        <li><%= link_to "難波city", searchresult_places_path(key: 3) %></li>
+                        <li><%= link_to "大阪城", searchresult_places_path(key: 4) %></li>
                     </ul>
                 </li>
                 <li><a href="">京都府</a>
@@ -27,9 +33,9 @@
         </li>
         <li><a href="#">種類から探す</a>
             <ul>
-                <li><a href="">遊園地</a>
+                <li><a href="">テーマパーク</a>
                     <ul>
-                    <li><a href="#">USJ</a></li>
+                    <li><%= link_to "USJ", searchresult_places_path(key: 2) %></li>
                     <li><a href="#">枚方パーク</a></li>
                     <li><a href="#">東京ディズニーランド</a></li>
 

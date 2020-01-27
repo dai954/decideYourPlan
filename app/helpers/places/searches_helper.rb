@@ -21,8 +21,10 @@ module Places::SearchesHelper
   
   def addHour(time, number)
     timex1 = Time.parse("#{time}")
-    timex = timex1 + 60 * number
-    strTimex = timex.strftime("%H:%M")
+    min_per = number/300.to_f
+    min_per_five = min_per.ceil * 300
+    timex2 = timex1 + min_per_five
+    strTimex = timex2.strftime("%H:%M")
     "#{strTimex}"
   end
 

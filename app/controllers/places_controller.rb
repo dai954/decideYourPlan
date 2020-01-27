@@ -1,6 +1,5 @@
 class PlacesController < ApplicationController
   def index
-    # binding.pry
     @places = Place.all
   end
 
