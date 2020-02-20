@@ -1,0 +1,17 @@
+.resultcontents{
+  margin: 80px;
+  display: flex;
+  justify-content: space-around;
+  .resultcontent{
+    margin-top: 30px;
+    &__top{
+
+    }
+    &__bottom{
+      &__name{
+        font-size: 20px;
+        font-weight: bold;
+      }
+    }
+  }
+}

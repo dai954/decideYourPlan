@@ -1,13 +1,12 @@
 // 検索のCSS
 .search_function{
-  margin-top: 30px;
-  text-align: center;
-}
-
+  margin: 30px 340px;
+  }
+  
 #keyword {
   display: inline-block;
   border-radius: 5px;
-  width: 50%;
+  width: 500px;
   height: 40px;
   border: 1px solid #ccc;
 }
@@ -46,8 +45,8 @@ li {
 // ドロップダウンメニューのCSS
       /* メニューバーの装飾 */
       nav{
-        width:100%;
-        margin-left: 183px;
+        width:70%;
+        position: absolute;
     }
     .main_menu{
         margin-top: 0; /*メニューバーの外側の余白*/
@@ -68,7 +67,7 @@ li {
     display: block; 
     }
     .main_menu li a:hover{
-        background-color: #afeeee;
+        background-color:#6495ed;
         color: #d00;
     }
 
@@ -92,8 +91,8 @@ li {
         font-weight: normal;
     }
     .main_menu li a:hover{
-        background-color: #afeeee;
-        color: #050;
+        background-color:#6495ed;
+        color: #0000FF;
     }
 
 

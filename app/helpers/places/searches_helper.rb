@@ -7,14 +7,15 @@ module Places::SearchesHelper
   end
 
 
-  def strTime(time1, time2)
+  def strTime(time1)
     
     timex1 = Time.parse("#{time1}")
-    timex2 = Time.parse("#{time2}")
+    # timex2 = Time.parse("#{time2}")
     
     strTimex1 = timex1.strftime("%H:%M")
-    strTimex2 = timex2.strftime("%H:%M")
-    "#{strTimex1}〜#{strTimex2}"
+    # strTimex2 = timex2.strftime("%H:%M")
+    # "#{strTimex1}〜#{strTimex2}"
+    "#{strTimex1}"
 
   end
 
@@ -24,9 +25,6 @@ module Places::SearchesHelper
     min_per = number/300.to_f
     min_per_five = min_per.ceil * 300
     timex2 = timex1 + min_per_five
-    strTimex = timex2.strftime("%H:%M")
-    "#{strTimex}"
   end
-
 
 end

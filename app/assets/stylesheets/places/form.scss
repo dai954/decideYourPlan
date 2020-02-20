@@ -1,0 +1,30 @@
+form{
+    .address{
+      border-radius: 5px;
+      width: 250px;
+      margin-bottom: 10px;
+    }
+    .time{
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    .female{
+      margin-bottom: 10px;
+    }
+    select{
+      background-color: white;
+      width: 200px;
+      height: 30px;
+    }
+    .submit{
+      width: 185px;
+      height: 40px;
+      display: block;
+      margin: 20px 0 0 auto;
+      border-radius: 20px;
+      background-color: #FD7821;
+      color: white;
+      font-weight: bold;
+
+    }
+  }

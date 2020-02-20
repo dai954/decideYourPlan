@@ -2,23 +2,25 @@
   <% @places.each do |place| %>
     <div class="content">
       <div class="content__left">
-        <div class="content__left--image"><%= image_tag "#{place.image}", :size =>'300x150' %></div>
+        <div class="content__left--image"><%= image_tag "#{place.image}", size: '200x200' %></div>
       </div>
       <div class="content__right">
         <div class="content__right__top">
           <%= place.name %>
         </div>
-        <div class="content__right__top">
+        <div class="content__right__address">
           <%= place.address %>
         </div>
-        <div class="content__right__top">
-          tel: <%= place.tel %>
+        <div class="content__right__description">
+          <%= place.description %>
         </div>
-        <div class="content__right__top">
-          <%= link_to "#{place.link}", "#{place.link}" %>
-        </div>
-        <div class="content__right__bottom">
-          <%= link_to "ここに行く", searchresult_places_path(key: "#{place.id}") %>
+        <div class="content__right__container">
+          <div class="content__right__container__link">
+            <%= link_to "#{place.link}", "#{place.link}" %>
+          </div>
+          <div class="content__right__container__go">
+            <%= link_to "ここに行く", searchresult_places_path(key: "#{place.id}") %>
+          </div>
         </div>
       </div>
     </div>
