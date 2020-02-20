@@ -1,0 +1,11 @@
+  <div class="content">
+    <div class = "content-text">
+      <h1 class = "content-text__time"> <%= addHour(@dateTime1, @section1+3600+@section2).strftime("%H:%M") %> </h1>
+      <p class = "content-text__name"> <%= "#{@place.name}" %> </p>
+      <p>タイトル</p>
+      <p> <%= "#{@place.description}" %> </p>
+    </div>
+    <div class = "content-image">
+      <%= image_tag "#{@place.image}", size: '400x250' %>
+    </div>
+  </div>
