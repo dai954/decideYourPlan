@@ -1,26 +1,23 @@
-<%= render partial: "searchfunction" %><br>
-
-<br>
-ここに行く↓
-<div class="content">
-  <div class="content__left">
-    <div class="content__left--image"><%= image_tag "#{@place.image}", :size =>'300x150' %></div>
+<div class="resultcontents">
+  <div class="resultcontent">
+    <div class="resultcontent__top">
+      <div class="resultcontent__top--image"><%= image_tag "#{@place.image}", :size =>'300x150' %></div>
+    </div>
+    <div class="resultcontent__bottom">
+      <div class="resultcontent__bottom__name">
+        <%= @place.name %>
+      </div>
+      <div class="resultcontent__bottom__address">
+        <%= @place.address %>
+      </div>
+      <div class="resultcontent__bottom__link">
+        <%= link_to "#{@place.link}", "#{@place.link}" %>
+      </div>
+    </div>
   </div>
-  <div class="content__right">
-    <div class="content__right__top">
-      <%= @place.name %>
-    </div>
-    <div class="content__right__top">
-      <%= @place.address %>
-    </div>
-    <div class="content__right__top">
-      tel: <%= @place.tel %>
-    </div>
-    <div class="content__right__top">
-      <%= link_to "#{@place.link}", "#{@place.link}" %>
-    </div>
+  <div class="if-form">
+    <%= render partial: "form" %>
   </div>
 </div>
 
-<%= render partial: "form" %>
 <%= render partial: "place"%>

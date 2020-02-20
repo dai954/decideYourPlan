@@ -1,95 +1,61 @@
-<div class="date">日付  <%= strDate(@dateTime1) %></div>
-<div class="time_for">時間  <%= strTime(@dateTime1, @dateTime2) %></div>
-<br>
-到着  <%= addHour(@dateTime1, @map_duration) %><br>
-ランチ  店名:<%= "#{@restaurant1.name}"%> <%= addHour(@dateTime1, 60) %>〜<%= addHour(@dateTime1, 120) %><br>
-<%= "#{@place.name}" %> <%= addHour(@dateTime1, 150) %>〜<%= addHour(@dateTime1, 360) %><br>
-ディナー  店名:<%= "#{@restaurant1.name}"%> <%= addHour(@dateTime1, 420) %>〜<%= addHour(@dateTime1, 480) %><br>
+<div class="destination-header">
+  <h1 class="destination-title"><%= "#{@place.name}" %>満喫プラン</h1>
+    <div class="date">日付  <%= strDate(@dateTime1) %></div>
+    <div class="time_for">出発時間  <%= strTime(@dateTime1) %></div>
+    到着  <%= addHour(@dateTime1, @section1).strftime("%H:%M") %><br>
+    <br>
+    ランチ  店名:<%= "#{@lunch_restaurant_name}"%> <%= addHour(@dateTime1, @section1).strftime("%H:%M") %>〜<%= addHour(@dateTime1, @section1+3600).strftime("%H:%M") %><br>
 
-<h1>サンプル時間<%= "#{@map_duration}" %></h1>
+    <%= "#{@place.name}" %> <%= addHour(@dateTime1, @section1+3600+@section2).strftime("%H:%M") %>〜<%= addHour(@dateTime1, @section1+3600+@section2+(3600*5)).strftime("%H:%M") %><br>
 
-<div class = "content">
-  <div>
-    <h1> <%= addHour(@dateTime1, @map_duration) %> </h1>
-    <h2> <%= "#{@restaurant1.name}"%> </h2>
-    <h3>タイトル</h3>
-    <p> 文章 </p>
-  </div>
-    <%= image_tag "https://d1f5hsy4d47upe.cloudfront.net/29/2957814d542011b580346a92cc201ad8_w.jpg", alt: "sample image", size: '400x250' %>
-  <div>
-  </div>
+    ディナー  店名:<%= "#{@restaurant_name}"%> <%= addHour(@dateTime1, @section1+3600+@section2+(3600*5)+@section3).strftime("%H:%M") %>〜<br>
 </div>
 
-<div class = "content">
-  <div>
-    <%= image_tag "#{@place.image}", size: '400x250' %>
-  </div>
-  <div class = "article">
-    <h1> <%= addHour(@dateTime1, 2000) %> </h1>
-    <h2> <%= "#{@place.name}" %> </h2>
-    <h3>タイトル</h3>
-    <p> 文章 </p>
-  </div>
-</div>
+<div class="contents">
 
-
-<div class = "content">
-  <div>
-    <h1> <%= addHour(@dateTime1, 420) %> </h1>
-    <h2> <%= "#{@restaurant_name}"%> </h2>
-    <h3>タイトル</h3>
-    <p> <%= "#{@restaurant_text}"%> </p>
-  </div>
-  <div>
-      <%= image_tag "#{@restaurant_image}", alt: "sample image", size: '400x250' %>
-  </div>
-</div>
-
-
-<!--
-
-<h1>メインスポット</h1>
-<div class="content">
-  <div class="content__left">
-    <div class="content__left--image"><%= image_tag "#{@place.image}", :size =>'150x150' %></div>
-  </div>
-  <div class="content__right">
-    <div class="content__right__top">
-      <%= @place.name %>
-    </div>
-    <div class="content__right__top">
-      <%= @place.address %>
-    </div>
-    <div class="content__right__top">
-      tel: <%= @place.tel %>
-    </div>
-    <div class="content__right__top">
-      <%= link_to "#{@place.link}", "#{@place.link}" %>
-    </div>
-  </div>
-</div>
-
-
-<h2>ディナー</h2>
-<% @restaurants.each do |restaurant| %>
   <div class="content">
-    <div class="content__right">
-      <div class="content__right__top">
-        <%= restaurant.name %>
-      </div>
-      <div class="content__right__top">
-        <%= restaurant.address %>
-      </div>
-      <div class="content__right__top">
-        tel: <%= restaurant.tel %>
-      </div>
-      <div class="content__right__top">
-       食べログ <%= link_to "#{restaurant.link}", "#{restaurant.link}" %>
-      </div>
-      <div class="content__right__bottom">
+    <div class = "content-text">
+      <h1 class = "content-text__time"> <%= addHour(@dateTime1, @section1).strftime("%H:%M") %> </h1>
+      <p class = "content-text__name"> <%= "#{@lunch_restaurant_name}"%> </p>
+      <p>タイトル</p>
+      <p> <%= "#{@lunch_restaurant_address}"%> </p>
+      <p> <%= "#{@luncn_restaurant_text}"%> </p>
+      <div class = "content-text__link">
+        <%= link_to "ぐるなび詳細", "#{@lunch_restaurant_link}", class: "content-text__link__gurunavilink" %>
       </div>
     </div>
+    <div class = "content-image" id= "content-image__right">
+        <%= image_tag "#{@lunch_restaurant_image}", alt: "sample image", size: '400x250' %>
+    </div>
   </div>
-<% end %>
 
--->
+  <div class="content">
+    <div class = "content-image">
+      <%= image_tag "#{@place.image}", size: '400x250' %>
+    </div>
+    <div class = "content-text">
+      <h1 class = "content-text__time"> <%= addHour(@dateTime1, @section1+3600+@section2).strftime("%H:%M") %> </h1>
+      <p class = "content-text__name"> <%= "#{@place.name}" %> </p>
+      <p>タイトル</p>
+      <p> <%= "#{@place.description}" %> </p>
+    </div>
+  </div>
+
+
+  <div class="content">
+    <div class = "content-text">
+      <h1 class = "content-text__time"> <%= addHour(@dateTime1, @section1+3600+@section2+(3600*5)+@section3).strftime("%H:%M") %> </h1>
+      <p class = "content-text__name"> <%= "#{@restaurant_name}"%> </p>
+      <p>タイトル</p>
+      <p> <%= "#{@restaurant_address}"%> </p>
+      <p> <%= "#{@restaurant_text}"%> </p>
+      <div class = "content-text__link">
+        <%= link_to "ぐるなび詳細", "#{@lunch_restaurant_link}", class: "content-text__link__gurunavilink" %>
+      </div>
+    </div>
+    <div class = "content-image" id= "content-image__right">
+        <%= image_tag "#{@restaurant_image}", alt: "sample image", size: '400x250' %>
+    </div>
+  </div>
+
+</div>

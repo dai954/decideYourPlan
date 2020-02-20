@@ -1,5 +1,4 @@
 class Place < ApplicationRecord
-  has_many :restaurants
 
   def self.search(search)
     return Place.all unless search
@@ -15,16 +14,15 @@ class Place < ApplicationRecord
     rex_address1 = rex_address[0]
     rex_address2 = rex_address[1]
     
-
       # hash形式でパラメタ文字列を指定し、URL形式にエンコード
 
     paramskey = URI.encode_www_form({freeword: "#{rex_address1},#{rex_address2},#{food}"})
-    gurunavi_keyid = "7c3b8a6d1b488adf1f5d13b2bc855034"
+
+    gurunavi_keyid = ENV["GURUNAVI_PRIVATE_KEY"]
 
     uri = URI.parse("https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=#{gurunavi_keyid}&#{paramskey}")
 
     result = Place.allApi(uri)
-    
     sample1 = result["@attributes"]
     sample2 = result["rest"][0]
     name = result["rest"][0]["name"]
@@ -38,31 +36,47 @@ class Place < ApplicationRecord
     holiday = result["rest"][0]["holiday"]
     budget = result["rest"][0]["budget"]
     areaname_s = result["rest"][0]["code"]["areaname_s"]
-    gurunaviapiHash1 = {name: name, text:text, image:image}
+    gurunaviapiHash1 = {name: name, text: text, image: image, address: address, link: link}
     return gurunaviapiHash1
     
   end
 
 
+  def self.googleApi(origin, destination)
 
-
-  def self.googleApi(departure, place)
-
-        place_address = place.address
 
         # hash形式でパラメタ文字列を指定し、URL形式にエンコード
-        origin_params = URI.encode_www_form({origin: "#{departure}"})
-        destination_params = URI.encode_www_form({destination: "#{place_address}"})
-        google_keyid = "AIzaSyCexLl9lU8g3m4X8bBESMUw86P9qnJbuJ4"
+        origin_params = URI.encode_www_form({origin: "#{origin}"})
+        destination_params = URI.encode_www_form({destination: "#{destination}"})
+        google_keyid = ENV["GOOGLE_DIRECTIONS_PRIVATE_KEY"]
 
         uri2 = URI.parse("https://maps.googleapis.com/maps/api/directions/json?#{origin_params}&#{destination_params}&key=#{google_keyid}")
     
         map_result = Place.allApi(uri2)
-
         map_duration = map_result["routes"][0]["legs"][0]["duration"]["value"]
         mapapihash1 = {map_duration: map_duration}
        return mapapihash1
        
+  end
+
+  def self.googleApi_waypoint(origin, waypoint1, waypoint2, destination)
+
+
+        # hash形式でパラメタ文字列を指定し、URL形式にエンコード
+        origin_params = URI.encode_www_form({origin: "#{origin}"})
+        waypoint1_params = URI.encode_www_form({destination: "#{waypoint1}"})
+        waypoint2_params = URI.encode_www_form({destination: "#{waypoint2}"})
+        destination_params = URI.encode_www_form({destination: "#{destination}"})
+        google_keyid = ENV["GOOGLE_DIRECTIONS_PRIVATE_KEY"]
+
+        # uri2 = URI.parse("https://maps.googleapis.com/maps/api/directions/json?#{origin_params}&#{destination_params}&waypoints=&key=#{google_keyid}")
+        uri2 = URI.parse("https://maps.googleapis.com/maps/api/directions/json?origin=#{origin_params}&destination=#{destination_params}&waypoints=#{waypoint1_params}|#{waypoint2_params}&key=#{google_keyid}")
+    
+        map_result = Place.allApi(uri2)
+
+        # map_duration = map_result["routes"][0]["legs"][0]["duration"]["value"]
+        # mapapihash1 = {map_duration: map_duration}
+       return map_result
   end
 
   

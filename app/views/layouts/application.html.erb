@@ -10,10 +10,12 @@
     <%= javascript_include_tag 'application' %>
   </head>
   <body>
+    <div class="header__sub">休日のデートプランはお決まりですか？</div>
     <header class="header">
-      <div class="header__title">
-        <%= link_to "decice Your Plan", root_path, class: "header__title--text" %>
-      </div>
+      <a href="/" class="header__title">
+        <img src="/icon_145450_256.png" alt="home page icon" class="header__title__icon">
+        <div class="header__title__text">Decide Your Plan</div>
+      </a>
       <div class="header__right">
         <% if user_signed_in? %>
           <%= link_to current_user.nickname, user_path(current_user), class: "header__right--btn" %>
@@ -27,8 +29,18 @@
         <% end %>
       </div>
     </header>
-    <div class="contents">
       <%= yield %>
-    </div>
   </body>
+<div class="footer">
+  <div class="footer-container">
+    <div>
+      <img src="/icon_145450_256.png" alt="home page icon" class="header__title__icon">
+      Copyright© 2020 DecideYourPlan Inc. 2020 Daisuke Ishikawa<br>
+      サイト内の文章の著作物は本サイトに属します。文章の複製及び無断転載を禁じます。
+      <a href="https://api.gnavi.co.jp/api/scope/" target="_blank">
+        <img src="https://api.gnavi.co.jp/api/img/credit/api_90_35.gif" width="90" height="35" border="0" alt="グルメ情報検索サイト　ぐるなび">
+      </a>
+    </div>
+  </div>
+</div>
 </html>

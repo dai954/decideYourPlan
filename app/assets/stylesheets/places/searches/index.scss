@@ -1,0 +1,39 @@
+.destination-header{
+  margin: 0 400px;
+  .destination-title{
+    text-align: center;
+  }
+}
+
+.contents{
+  margin: 0 150px;
+.content{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 100px;
+  .content-text{
+    width: 50%;
+    &__time{
+    margin: 0;
+    }
+    &__name{
+      font-weight: bold;
+      font-size: 20px;
+    }
+    &__link{
+      width: 100%;
+      text-align: right;
+      &__gurunavilink{
+        text-decoration: none;
+        color: gray;
+      }
+    }
+  }
+  .content-image{
+    width: 50%;
+  }
+  #content-image__right{
+    text-align: right;
+  }
+ }
+}
