@@ -79,6 +79,27 @@ class Place < ApplicationRecord
        return map_result
   end
 
+  def self.googleApi_waypoint2(origin, waypoint1, waypoint2, waypoint3, destination)
+
+
+        # hash形式でパラメタ文字列を指定し、URL形式にエンコード
+        origin_params = URI.encode_www_form({origin: "#{origin}"})
+        waypoint1_params = URI.encode_www_form({destination: "#{waypoint1}"})
+        waypoint2_params = URI.encode_www_form({destination: "#{waypoint2}"})
+        waypoint3_params = URI.encode_www_form({destination: "#{waypoint3}"})
+        destination_params = URI.encode_www_form({destination: "#{destination}"})
+        google_keyid = ENV["GOOGLE_DIRECTIONS_PRIVATE_KEY"]
+
+        # uri2 = URI.parse("https://maps.googleapis.com/maps/api/directions/json?#{origin_params}&#{destination_params}&waypoints=&key=#{google_keyid}")
+        uri2 = URI.parse("https://maps.googleapis.com/maps/api/directions/json?origin=#{origin_params}&destination=#{destination_params}&waypoints=#{waypoint1_params}|#{waypoint2_params}|#{waypoint3_params}&key=#{google_keyid}")
+    
+        map_result2 = Place.allApi(uri2)
+
+        # map_duration = map_result["routes"][0]["legs"][0]["duration"]["value"]
+        # mapapihash1 = {map_duration: map_duration}
+       return map_result2
+  end
+
   
   private
   def self.allApi(uri)

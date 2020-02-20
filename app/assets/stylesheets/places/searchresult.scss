@@ -4,8 +4,11 @@
   justify-content: space-around;
   .resultcontent{
     margin-top: 30px;
+    &__title{
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
     &__top{
-
     }
     &__bottom{
       &__name{

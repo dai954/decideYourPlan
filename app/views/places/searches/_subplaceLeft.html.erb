@@ -1,0 +1,11 @@
+<div class="content">
+  <div class = "content-image" id= "content-image__left">
+    <%= image_tag "#{@subplace.image}", size: '400x250' %>
+  </div>
+  <div class = "content-text">
+    <h1 class = "content-text__time"> <%= addHour(@dateTime1, @section1+3600+@section2+(3600*4)+@section3).strftime("%H:%M") %> 〜 <%= addHour(@dateTime1, @section1+3600+@section2+(3600*4)+@section3+(3600*2)).strftime("%H:%M") %> </h1>
+    <p class = "content-text__name"> <%= "#{@subplace.name}" %> </p>
+    <p>タイトル</p>
+    <p> <%= "#{@subplace.description}" %> </p>
+  </div>
+</div>

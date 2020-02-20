@@ -1,0 +1,2 @@
+class Subplace < ApplicationRecord
+end

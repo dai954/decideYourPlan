@@ -1,0 +1,19 @@
+<div class="content">
+  <div class = "content-image" id= "content-image__left">
+      <%= image_tag "#{@restaurant_image}", alt: "sample image", size: '400x250' %>
+  </div>
+  <div class = "content-text">
+    <% if @subplace%>
+      <h1 class = "content-text__time"> <%= addHour(@dateTime1, @section1+3600+@section2+(3600*4)+@section3+(3600*2)+@section4).strftime("%H:%M") %> </h1>
+    <% else%>
+      <h1 class = "content-text__time"> <%= addHour(@dateTime1, @section1+3600+@section2+(3600*6)+@section3).strftime("%H:%M") %> </h1>
+    <%end%>
+    <p class = "content-text__name"> <%= "#{@restaurant_name}"%> </p>
+    <p>タイトル</p>
+    <p> <%= "#{@restaurant_address}"%> </p>
+    <p> <%= "#{@restaurant_text}"%> </p>
+    <div class = "content-text__link">
+      <%= link_to "ぐるなび詳細", "#{@restaurant_link}", class: "content-text__link__gurunavilink" %>
+    </div>
+  </div>
+</div>
