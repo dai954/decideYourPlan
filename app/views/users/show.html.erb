@@ -5,16 +5,11 @@
       <p class="admin_btn col-xs-offset-1 col-xs-10 col-xs-offset-1"><%= link_to "管理画面", "/admin" %></p>
   <% else %>
     <div class="page-header">
-      <h1>マイページ<br>
-        <small><%= current_user.nickname %>さん、こんにちは！</small>
-      </h1>
+      <h1>マイページ</h1><br>
     </div>
-    <p>マイページではプラン一覧を確認できます。</p>
 <% end %>
+<%= link_to "ユーザー情報を編集する", edit_user_registration_path, class: "mapage_user_edit" %>
 
-<div class="postTitle">
-  <%= @user.nickname %>さんのプラン一覧
-</div>
 
 <% @posts.each do |post| %>
   <div class="content">
@@ -24,9 +19,6 @@
     <div class="content__right">
       <div class="content__right__top">
         場所: <%= post.place %>
-      </div>
-      <div class="content__right__top">
-        オススメのお店: <%= post.restaurant %>
       </div>
       <div class="content__right__top">
         オススメ文: <%= post.content %>

@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  before_action :move_to_index, except: [:index, :show, :new]
+  before_action :move_to_index, except: [:index, :show, :new, :create]
   before_action :move_to_index_for_new, only: :new
 
   def index

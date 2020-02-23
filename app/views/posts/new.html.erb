@@ -1,10 +1,13 @@
-<div class="content__title">
-  あなたのプランを教えてください
+<div class = "post_new">
+<div class="post_content__title">
+  あなたのおすすめデートプランを教えてください
 </div>
 
-<%= form_with model: @post, class: :form, local: true do |form| %>
-  行った場所 <%= form.text_field :place, placeholder: :"海遊館、ユニバーサルスタジオジャパン、etc", class: :form__title %> <br>
-  おすすめレストラン <%= form.text_field :restaurant, placeholder: :レストラン, class: :form__title %> <br>
-  <%= form.text_area :content, placeholder: :その他おすすめポイント, class: :form__text %> <br>
-  <%= form.submit '投稿する', class: :form__btn %>
+<%= form_with model: @post, class: :post_form, local: true do |form| %>
+  <div class="post_new_place">メインの行った場所</div>
+  <%= form.text_field :place, placeholder: :"海遊館、ユニバーサルスタジオジャパン、etc", class: :post_form__title %> <br>
+  <div class="post_new_place">デートプランの内容</div>
+  <%= form.text_area :content, placeholder: :プラン, class: :post_form__text %> <br>
+  <%= form.submit '投稿する', class: :post_form__btn %>
 <% end %>
+</div>

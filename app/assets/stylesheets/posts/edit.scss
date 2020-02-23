@@ -1,0 +1,37 @@
+.post_edit{
+  height: 480px;
+  width: 600px;
+  margin:20px auto;
+  background-color:white;
+  text-align: center;
+  .post_content__title{
+    font-weight: bold;
+    font-size: 22px;
+    color: #FD7821;
+  }
+  .post_form__title{
+    width: 60%;
+    border: 1px solid #d8d8d8;
+  }
+  .post_form{
+    .post_new_place{
+      font-weight: bold;
+      margin-top: 5px;
+    }
+    .post_form__text{
+      width: 80%;
+      height: 300px;
+      border: 1px solid #d8d8d8;
+    }
+    .post_form__btn{
+      width: 185px;
+      height: 40px;
+      display: inline-block;
+      margin-top: 5px;
+      border-radius: 20px;
+      background-color: #FD7821;
+      color: white;
+      font-weight: bold;
+    }
+  }
+}
