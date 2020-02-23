@@ -1,9 +1,12 @@
-<div class="content__title">
+<div class="post_edit">
+<div class="post_content__title">
   プランの編集
 </div>
-<%= form_with model: @post, class: :form, local: true do |form| %>
-  <%= form.text_field :place, placeholder: :場所, class: :form__title %>
-  <%= form.text_field :restaurant, placeholder: :レストラン, class: :form__title %>
-  <%= form.text_area :content, placeholder: :プラン文, class: :form__text %>
-  <%= form.submit '投稿する', class: :form__btn %>
+<%= form_with model: @post, class: :post_form, local: true do |form| %>
+  <div class="post_edit__title">メインの行った場所</div>
+  <%= form.text_field :place, placeholder: :場所, class: :post_form__title %>
+  <div class="post_edit_place">デートプランの内容</div>
+  <%= form.text_area :content, placeholder: :プラン, class: :post_form__text %>
+  <%= form.submit '投稿する', class: :post_form__btn %>
 <% end %>
+</div>
