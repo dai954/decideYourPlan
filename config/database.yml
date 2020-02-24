@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: decideYourPlan_production
-  username: decideYourPlan
-  password: <%= ENV['DECIDEYOURPLAN_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
