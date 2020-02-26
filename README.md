@@ -1,24 +1,76 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+# decideYourPlan
+行きたいメインスポットを選んで、条件を入力するとその日のデートプランを立ててくれるアプリです。
 
-* Ruby version
+# Dependency
+使用言語  Ruby 2.5.1
 
-* System dependencies
+# Usage
+1.メインの行き先を選ぶ→topページから検索窓を使用orプルダウンメニューを使用or一覧から「ここに行く」を選択。
 
-* Configuration
+2.日時などの条件を入力。
 
-* Database creation
+3.デートプランが表示される。ぐるなびのリンクでレストランの詳細が見れます。クーボンなども使用して下さい。
 
-* Database initialization
+# Authors
+Daisuke Ishikawa
 
-* How to run the test suite
+# References
+ぐるなび  [https://www.gnavi.co.jp/](https://www.gnavi.co.jp/)
 
-* Services (job queues, cache servers, search engines, etc.)
+googleAPI  [https://console.cloud.google.com/apis/library?hl=ja&project=logical-handler-266206&folder&organizationId](https://console.cloud.google.com/apis/library?hl=ja&project=logical-handler-266206&folder&organizationId)
 
-* Deployment instructions
 
-* ...
+
+# decideYourPlan DB設計
+## placesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|
+|address|string|
+|link|string|
+|image|text|
+|prefecture|string|
+|description|text|
+
+### Association
+- has_many :subplaces
+
+
+## postsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|place|string|null: false|
+|content|text|
+|user_id|integer|null: false|
+### Association
+- belongs_to :user
+
+
+## subplacesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|
+|place_id|integer|
+|address|string|
+|link|string|
+|image|text|
+|prefecture|string|
+|description|text|
+
+### Association
+- belongs_to :place
+
+
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|email|string|null: false|
+|password|string|null: false|
+|nickname|string|null: false|
+
+### Association
+- has_many :posts
+

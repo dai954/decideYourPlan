@@ -1,6 +1,6 @@
 <div class="resultcontents">
   <div class="resultcontent">
-    <h3 class="resultcontent__title">メインの行き先</h3>
+    <h3 class="resultcontent__title">メインの行き先↓</h3>
     <div class="resultcontent__top">
       <div class="resultcontent__top--image"><%= image_tag "#{@place.image}", :size =>'300x150' %></div>
     </div>
@@ -10,6 +10,9 @@
       </div>
       <div class="resultcontent__bottom__address">
         <%= @place.address %>
+      </div>
+      <div class="resultcontent__bottom__description">
+          <%= @place.description %>
       </div>
       <div class="resultcontent__bottom__link">
         <%= link_to "#{@place.link}", "#{@place.link}" %>

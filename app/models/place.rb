@@ -1,4 +1,5 @@
 class Place < ApplicationRecord
+  has_many :subplaces
 
   def self.search(search)
     return Place.all unless search
