@@ -40,7 +40,8 @@ class Places::SearchesController < ApplicationController
 if @subplace
   # 出発地、ランチ場所、メインの行き先、サブの行き先、ディナーの場所の５点間の経過時間
   subplace_address = @subplace.address
-  mapapiHash3 = Place.googleApi_waypoint2(departure, @lunch_restaurant_address, place_address, subplace_address, @restaurant_address)
+  # mapapiHash3 = Place.googleApi_waypoint2(departure, @lunch_restaurant_address, place_address, subplace_address, @restaurant_address)
+  mapapiHash3 = Place.googleApi_waypoint(origin: departure, waypoint1: @lunch_restaurant_address, waypoint2: place_address,waypoint3: subplace_address ,destination: @restaurant_address)
   @section1 = mapapiHash3["routes"][0]["legs"][0]["duration"]["value"]
   @section2 = mapapiHash3["routes"][0]["legs"][1]["duration"]["value"]
   @section3 = mapapiHash3["routes"][0]["legs"][2]["duration"]["value"]
@@ -48,7 +49,7 @@ if @subplace
 
 else
   # 出発地、ランチ場所、メインの行き先、ディナーの場所の４点間の経過時間
-  mapapiHash2 = Place.googleApi_waypoint(departure, @lunch_restaurant_address, place_address, @restaurant_address)
+  mapapiHash2 = Place.googleApi_waypoint(origin: departure, waypoint1: @lunch_restaurant_address, waypoint2: place_address, destination: @restaurant_address)
   @section1 = mapapiHash2["routes"][0]["legs"][0]["duration"]["value"]
   @section2 = mapapiHash2["routes"][0]["legs"][1]["duration"]["value"]
   @section3 = mapapiHash2["routes"][0]["legs"][2]["duration"]["value"]

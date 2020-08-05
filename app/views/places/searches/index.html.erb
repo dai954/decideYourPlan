@@ -8,10 +8,12 @@
   <% if @subplace %>
     <%= "#{@place.name}" %> <%= addHour(@dateTime1, @section1+3600+@section2).strftime("%H:%M") %>〜<%= addHour(@dateTime1, @section1+3600+@section2+(3600*4)).strftime("%H:%M") %><br>
     <%= "#{@subplace.name}" %> <%= addHour(@dateTime1, @section1+3600+@section2+(3600*4)+@section3).strftime("%H:%M") %>〜<%= addHour(@dateTime1, @section1+3600+@section2+(3600*4)+@section3+(3600*2)).strftime("%H:%M") %><br>
+    ディナー  店名:<%= "#{@restaurant_name}"%> <%= addHour(@dateTime1, @section1+3600+@section2+(3600*4)+@section3+(3600*2)+@section4).strftime("%H:%M") %>
   <% else %>
     <%= "#{@place.name}" %> <%= addHour(@dateTime1, @section1+3600+@section2).strftime("%H:%M") %>〜<%= addHour(@dateTime1, @section1+3600+@section2+(3600*6)).strftime("%H:%M") %><br>
+    ディナー  店名:<%= "#{@restaurant_name}"%> <%= addHour(@dateTime1, @section1+3600+@section2+(3600*6)+@section3).strftime("%H:%M") %>〜<br>
   <%end%>
-    ディナー  店名:<%= "#{@restaurant_name}"%> <%= addHour(@dateTime1, @section1+3600+@section2+(3600*5)+@section3).strftime("%H:%M") %>〜<br>
+
 </div>
 
 <div class="contents">

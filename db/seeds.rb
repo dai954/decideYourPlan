@@ -187,3 +187,17 @@ Place.create!(
 
   ]
 )
+
+Subplace.create!(
+  [
+    {
+      name: '天保山大観覧車',
+      place_id: 1,
+      address: '大阪府大阪市港区海岸通１丁目１−１０',
+      link: 'https://www.kaiyukan.com/thv/ferriswheel/',
+      image: 'https://d1f5hsy4d47upe.cloudfront.net/89/897ffb770a15d687656df4591b02b17a_w.jpg',
+      prefecture: '大阪府',
+      description: '地上高、世界最大級の高さ112.5mを誇る「大観覧車」は、1997年7月12日に誕生しました。晴れた日には、東は生駒山系、西は明石海峡大橋、南は関西国際空港、北は六甲山系まで、ぐるっと一望できます。所要時間は約15分。キャビンの中では、日本語と英語で景色の説明が放送されます。'
+    }
+  ]
+)
