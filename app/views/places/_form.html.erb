@@ -4,7 +4,8 @@
   出発地<br>
   <input name="departure" type="text" class="address" placeholder="出発地の住所を入力してください" required /> *<br>
   お出かけの日時を入力してください<br>
-  <input type="datetime-local" class="time" name="time1" required />〜 *<br>
+  (出発時間をAM09:00~PM15:00で選択してください)<br>
+  <input type="datetime-local" class="time" id="date_time" name="time1" required />〜 *<br>
   あなたの性別は？<br>
   <label>
     <input type="radio" name="RadioGroup1" value="20">男性
@@ -42,7 +43,7 @@
     <option value="肉料理">肉料理</option>
   </select> ディナー<br>
   <div>
-    <input type="submit" value="条件を送信する" class="submit">
+    <input type="submit" value="条件を送信する" class="submit" id="mainForm">
   </div>
   <input type="hidden" name="placeid" value=<%="#{@place.id}"%>>
 </form>
