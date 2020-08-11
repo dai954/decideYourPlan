@@ -1,17 +1,17 @@
 <div class="destination-header">
   <h1 class="destination-title"><%= "#{@place.name}" %>満喫プラン</h1>
-    <div class="date">日付  <%= strDate(@dateTime1) %></div>
-    <div class="time_for">出発時間  <%= strTime(@dateTime1) %></div>
-    到着  <%= addHour(@dateTime1, @section1).strftime("%H:%M") %><br>
+    <div class="date">日付  <%= @date %></div>
+    <div class="time_for">サンプル出発時間  <%= calc_departure_time(@date, @section1) %></div>
+    サンプル到着  <%= display_lunch_arrival() %>
     <br>
-    ランチ  店名:<%= "#{@lunch_restaurant_name}"%> <%= addHour(@dateTime1, @section1).strftime("%H:%M") %>〜<%= addHour(@dateTime1, @section1+3600).strftime("%H:%M") %><br>
+    ランチ  店名:<%= "#{@lunch_restaurant_name}"%> <%= display_lunch_time() %><br>
   <% if @subplace %>
-    <%= "#{@place.name}" %> <%= addHour(@dateTime1, @section1+3600+@section2).strftime("%H:%M") %>〜<%= addHour(@dateTime1, @section1+3600+@section2+(3600*4)).strftime("%H:%M") %><br>
-    <%= "#{@subplace.name}" %> <%= addHour(@dateTime1, @section1+3600+@section2+(3600*4)+@section3).strftime("%H:%M") %>〜<%= addHour(@dateTime1, @section1+3600+@section2+(3600*4)+@section3+(3600*2)).strftime("%H:%M") %><br>
-    ディナー  店名:<%= "#{@restaurant_name}"%> <%= addHour(@dateTime1, @section1+3600+@section2+(3600*4)+@section3+(3600*2)+@section4).strftime("%H:%M") %>
+    <%= "#{@place.name}" %> <%= place_stay_time(@date, @section2) %><br>
+    <%= "#{@subplace.name}" %> <%= subplace_stay_time(@date, @section3) %><br>
+    ディナー  店名:<%= "#{@restaurant_name}"%> <%= dinner_start_time(@section4) %>
   <% else %>
-    <%= "#{@place.name}" %> <%= addHour(@dateTime1, @section1+3600+@section2).strftime("%H:%M") %>〜<%= addHour(@dateTime1, @section1+3600+@section2+(3600*6)).strftime("%H:%M") %><br>
-    ディナー  店名:<%= "#{@restaurant_name}"%> <%= addHour(@dateTime1, @section1+3600+@section2+(3600*6)+@section3).strftime("%H:%M") %>〜<br>
+    <%= "#{@place.name}" %> <%= place_stay_time(@date, @section2) %><br>
+    ディナー  店名:<%= "#{@restaurant_name}"%> <%= dinner_start_time(@section3) %><br>
   <%end%>
 
 </div>

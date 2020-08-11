@@ -1,6 +1,6 @@
   <div class="content">
     <div class = "content-text">
-      <h1 class = "content-text__time"> <%= addHour(@dateTime1, @section1+3600+@section2).strftime("%H:%M") %> </h1>
+      <h1 class = "content-text__time"> <%= display_place_arrival() %> </h1>
       <p class = "content-text__name"> <%= "#{@place.name}" %> </p>
       <p>タイトル</p>
       <p> <%= "#{@place.description}" %> </p>

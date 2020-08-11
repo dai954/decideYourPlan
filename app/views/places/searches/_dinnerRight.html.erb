@@ -1,10 +1,6 @@
 <div class="content">
   <div class = "content-text">
-    <% if @subplace%>
-      <h1 class = "content-text__time"> <%= addHour(@dateTime1, @section1+3600+@section2+(3600*4)+@section3+(3600*2)+@section4).strftime("%H:%M") %> </h1>
-    <% else%>
-      <h1 class = "content-text__time"> <%= addHour(@dateTime1, @section1+3600+@section2+(3600*6)+@section3).strftime("%H:%M") %> </h1>
-    <%end%>
+    <h1 class = "content-text__time"> <%= display_dinner_time() %> </h1>
     <p class = "content-text__name"> <%= "#{@restaurant_name}"%> </p>
     <p>タイトル</p>
     <p> <%= "#{@restaurant_address}"%> </p>
