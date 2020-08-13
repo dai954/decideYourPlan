@@ -23,7 +23,17 @@ class Place < ApplicationRecord
 
     uri = URI.parse("https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=#{gurunavi_keyid}&#{paramskey}")
 
-    result = Place.allApi(uri)
+    result = allApi(uri)
+    if result == "404 NOT FOUND" && food.include?("ランチ")
+    paramskey = URI.encode_www_form({freeword: "#{rex_address1},#{rex_address2},ランチ"})
+    uri = URI.parse("https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=#{gurunavi_keyid}&#{paramskey}")
+    result = allApi(uri)
+    elsif result == "404 NOT FOUND"
+    paramskey = URI.encode_www_form({freeword: "#{rex_address1},#{rex_address2}"})
+    uri = URI.parse("https://api.gnavi.co.jp/RestSearchAPI/v3/?keyid=#{gurunavi_keyid}&#{paramskey}")
+    result = allApi(uri)
+    else
+    end
     sample1 = result["@attributes"]
     sample2 = result["rest"][0]
     name = result["rest"][0]["name"]
@@ -39,6 +49,7 @@ class Place < ApplicationRecord
     areaname_s = result["rest"][0]["code"]["areaname_s"]
     gurunaviapiHash1 = {name: name, text: text, image: image, address: address, link: link}
     return gurunaviapiHash1
+
     
   end
 
@@ -98,6 +109,9 @@ class Place < ApplicationRecord
        # 別のURLに飛ばされた場合
        when Net::HTTPRedirection
          message = "Redirection: code=#{response.code} message=#{response.message}"
+              # 404エラー時
+       when Net::HTTPNotFound
+         message = "404 NOT FOUND"
        # その他エラー
        else
          message = "HTTP ERROR: code=#{response.code} message=#{response.message}"
