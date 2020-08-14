@@ -14,6 +14,7 @@ body{
     &__sub{
       background-color: white;
       color: #FD7821;
+      font-size: 1.2vw;
     }
     &__container{
       text-decoration: none;
@@ -26,7 +27,7 @@ body{
         height: 35px;
       }
       &__text{
-        font-size: 30px;
+        font-size: 2vw;
         line-height: 56px;
         text-decoration: none;
         color: #FD7821;
@@ -36,6 +37,7 @@ body{
   }
     &__right{
       &--btn{
+        font-size: 1.3vw;
         text-decoration: none;
         line-height: 90px;
         color: gray;

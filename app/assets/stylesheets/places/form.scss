@@ -1,11 +1,6 @@
 form{
     .address{
-      border-radius: 5px;
       width: 250px;
-      margin-bottom: 10px;
-    }
-    .time{
-      border-radius: 5px;
       margin-bottom: 10px;
     }
     .female{
@@ -13,6 +8,7 @@ form{
     }
     select{
       background-color: white;
+      border-radius: 2px;
       width: 200px;
       height: 30px;
     }
@@ -22,34 +18,9 @@ form{
       display: block;
       margin: 20px 0 0 auto;
       border-radius: 20px;
+      border-style: none;
       background-color: #FD7821;
       color: white;
       font-weight: bold;
-
     }
-  }
-
-  // div {
-  //   margin-bottom: 10px;
-  //   position: relative;
-  // }
-  
-  // input[type="number"] {
-  //   width: 100px;
-  // }
-  
-  // input + span {
-  //   padding-right: 30px;
-  // }
-  
-  input:invalid+span:after {
-    position: absolute;
-    content: '✖';
-    padding-left: 5px;
-  }
-  
-  input:valid+span:after {
-    position: absolute;
-    content: '✓';
-    padding-left: 5px;
   }

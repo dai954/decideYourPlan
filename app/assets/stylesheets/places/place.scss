@@ -11,10 +11,7 @@
     border-bottom: 1px solid rgba(0,0,0,0.12);
     &__left{
       width: 30%;
-      &--image{
-        img{
-        }
-      }
+      margin-right: 10px;
     }
     &__right{
       width: 70%;
@@ -40,14 +37,14 @@
         justify-content: space-between;
         margin-top: 3px;
       &__link{
-        width: 80%;
+        width: 60%;
         height: 10%;
         a{
           text-decoration: none;
+          color: gray;
         }
       }
       &__go{
-        width: 20%;
         height: 10%;
         text-align: right;
         a{

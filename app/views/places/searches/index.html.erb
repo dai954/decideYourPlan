@@ -1,5 +1,6 @@
 <div class="destination-header">
   <h1 class="destination-title"><%= "#{@place.name}" %>満喫プラン</h1>
+  <div id="destination-detail">
     <div class="date">日付  <%= @date %></div>
     <div class="time_for">サンプル出発時間  <%= calc_departure_time(@date, @section1) %></div>
     サンプル到着  <%= display_lunch_arrival() %>
@@ -13,6 +14,7 @@
     <%= "#{@place.name}" %> <%= place_stay_time(@date, @section2) %><br>
     ディナー  店名:<%= "#{@restaurant_name}"%> <%= dinner_start_time(@section3) %><br>
   <%end%>
+  </div>
 
 </div>
 

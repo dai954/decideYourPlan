@@ -1,8 +1,13 @@
 // 検索のCSS
 .search_function{
-  margin: 30px 340px;
+  margin: 30px auto;
+  text-align: center;
   }
-  
+
+#mix {
+  display: inline-block;
+}
+
 #keyword {
   display: inline-block;
   border-radius: 5px;
@@ -13,6 +18,7 @@
 #submit {
   display: inline-block;
   border-radius: 5px;
+  border-style: none;
   height: 40px;
   background-color: #6495ed;
   color: #fff;

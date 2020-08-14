@@ -1,6 +1,8 @@
 .destination-header{
-  margin: 0 400px;
   .destination-title{
+    text-align: center;
+  }
+  #destination-detail{
     text-align: center;
   }
 }
@@ -39,9 +41,11 @@
   }
   #content-image__right{
     text-align: right;
+    margin-left: 15px;
   }
   #content-image__left{
     text-align: left;
+    margin-right: 15px;
   }
  }
 }
