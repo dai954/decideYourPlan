@@ -74,3 +74,6 @@ gem 'devise'
 gem 'rails_admin', '~> 2.0'
 gem 'cancancan'
 gem "jquery-rails"
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+gem 'rails-i18n', '~> 5.1'
