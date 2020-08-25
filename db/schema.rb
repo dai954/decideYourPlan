@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_23_114625) do
+ActiveRecord::Schema.define(version: 2020_08_23_090318) do
 
   create_table "places", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -23,12 +23,29 @@ ActiveRecord::Schema.define(version: 2020_02_23_114625) do
     t.text "description"
   end
 
-  create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "searches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "lunch_name"
+    t.text "lunch_text"
+    t.text "lunch_image"
+    t.string "lunch_address"
+    t.string "lunch_link"
+    t.string "dinner_name"
+    t.text "dinner_text"
+    t.text "dinner_image"
+    t.string "dinner_address"
+    t.string "dinner_link"
+    t.integer "section1"
+    t.integer "section2"
+    t.integer "section3"
+    t.integer "section4"
+    t.bigint "place_id"
+    t.bigint "subplace_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "place"
-    t.text "content"
-    t.integer "user_id"
+    t.index ["place_id"], name: "index_searches_on_place_id"
+    t.index ["subplace_id"], name: "index_searches_on_subplace_id"
+    t.index ["user_id"], name: "index_searches_on_user_id"
   end
 
   create_table "subplaces", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -57,4 +74,7 @@ ActiveRecord::Schema.define(version: 2020_02_23_114625) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "searches", "places"
+  add_foreign_key "searches", "subplaces"
+  add_foreign_key "searches", "users"
 end

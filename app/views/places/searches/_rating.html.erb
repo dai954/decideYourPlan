@@ -1,0 +1,93 @@
+<h1><%= "#{@place.name}" %>満喫プランをレビュー</h1>
+
+<div class="rating-box mt-3">
+<% if user_signed_in? && @subplace %>
+  <%= form_with model: @search, url: places_searches_url, local: true do |f| %>
+    <%= f.hidden_field :lunch_name, value: @lunch_restaurant_name %>
+    <%= f.hidden_field :lunch_text, value: @lunch_restaurant_text %>
+    <%= f.hidden_field :lunch_image, value: @lunch_restaurant_image %>
+    <%= f.hidden_field :lunch_address, value: @lunch_restaurant_address %>
+    <%= f.hidden_field :lunch_link, value: @lunch_restaurant_link %>
+    <%= f.hidden_field :dinner_name, value: @restaurant_name %>
+    <%= f.hidden_field :dinner_text, value: @restaurant_text %>
+    <%= f.hidden_field :dinner_image, value: @restaurant_image %>
+    <%= f.hidden_field :dinner_address, value: @restaurant_address %>
+    <%= f.hidden_field :dinner_link, value: @restaurant_link %>
+    
+    <%= f.hidden_field :section1, value: @section1 %>
+    <%= f.hidden_field :section2, value: @section2 %>
+    <%= f.hidden_field :section3, value: @section3 %>
+    <%= f.hidden_field :section4, value: @section4 %>
+
+    <%= f.hidden_field :place_id, value: @place.id %>
+    <%= f.hidden_field :subplace_id, value: @subplace.id %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.submit "保存", class: "button mt-3" %>
+  <%end%>
+  <% elsif user_signed_in? && !@subplace %>
+  <%= form_with model: @search, url: places_searches_url, local: true do |f| %>
+    <%= f.hidden_field :lunch_name, value: @lunch_restaurant_name %>
+    <%= f.hidden_field :lunch_text, value: @lunch_restaurant_text %>
+    <%= f.hidden_field :lunch_image, value: @lunch_restaurant_image %>
+    <%= f.hidden_field :lunch_address, value: @lunch_restaurant_address %>
+    <%= f.hidden_field :lunch_link, value: @lunch_restaurant_link %>
+    <%= f.hidden_field :dinner_name, value: @restaurant_name %>
+    <%= f.hidden_field :dinner_text, value: @restaurant_text %>
+    <%= f.hidden_field :dinner_image, value: @restaurant_image %>
+    <%= f.hidden_field :dinner_address, value: @restaurant_address %>
+    <%= f.hidden_field :dinner_link, value: @restaurant_link %>
+    
+    <%= f.hidden_field :section1, value: @section1 %>
+    <%= f.hidden_field :section2, value: @section2 %>
+    <%= f.hidden_field :section3, value: @section3 %>
+
+    <%= f.hidden_field :place_id, value: @place.id %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.submit "保存", class: "button mt-3" %>
+  <%end%>
+  <% elsif !user_signed_in? && @subplace %>
+  <%= form_with model: @search, url: places_searches_url, local: true do |f| %>
+    <%= f.hidden_field :lunch_name, value: @lunch_restaurant_name %>
+    <%= f.hidden_field :lunch_text, value: @lunch_restaurant_text %>
+    <%= f.hidden_field :lunch_image, value: @lunch_restaurant_image %>
+    <%= f.hidden_field :lunch_address, value: @lunch_restaurant_address %>
+    <%= f.hidden_field :lunch_link, value: @lunch_restaurant_link %>
+    <%= f.hidden_field :dinner_name, value: @restaurant_name %>
+    <%= f.hidden_field :dinner_text, value: @restaurant_text %>
+    <%= f.hidden_field :dinner_image, value: @restaurant_image %>
+    <%= f.hidden_field :dinner_address, value: @restaurant_address %>
+    <%= f.hidden_field :dinner_link, value: @restaurant_link %>
+    
+    <%= f.hidden_field :section1, value: @section1 %>
+    <%= f.hidden_field :section2, value: @section2 %>
+    <%= f.hidden_field :section3, value: @section3 %>
+    <%= f.hidden_field :section4, value: @section4 %>
+
+
+    <%= f.hidden_field :place_id, value: @place.id %>
+    <%= f.hidden_field :subplace_id, value: @subplace.id %>
+    <%= f.submit "保存", class: "button mt-3" %>
+  <%end%>
+  <% else %>
+  <%= form_with model: @search, url: places_searches_url, local: true do |f| %>
+    <%= f.hidden_field :lunch_name, value: @lunch_restaurant_name %>
+    <%= f.hidden_field :lunch_text, value: @lunch_restaurant_text %>
+    <%= f.hidden_field :lunch_image, value: @lunch_restaurant_image %>
+    <%= f.hidden_field :lunch_address, value: @lunch_restaurant_address %>
+    <%= f.hidden_field :lunch_link, value: @lunch_restaurant_link %>
+    <%= f.hidden_field :dinner_name, value: @restaurant_name %>
+    <%= f.hidden_field :dinner_text, value: @restaurant_text %>
+    <%= f.hidden_field :dinner_image, value: @restaurant_image %>
+    <%= f.hidden_field :dinner_address, value: @restaurant_address %>
+    <%= f.hidden_field :dinner_link, value: @restaurant_link %>
+    
+    <%= f.hidden_field :section1, value: @section1 %>
+    <%= f.hidden_field :section2, value: @section2 %>
+    <%= f.hidden_field :section3, value: @section3 %>
+
+    <%= f.hidden_field :place_id, value: @place.id %>
+    <%= f.submit "保存", class: "button mt-3" %>
+  <%end%>
+<% end %>
+
+</div>
