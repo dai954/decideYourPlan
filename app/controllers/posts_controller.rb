@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create(post_params)
+    Post.create(post_params2)
     redirect_to root_path
   end
 
@@ -40,6 +40,10 @@ class PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit(:place, :restaurant, :content).merge(user_id: current_user.id)
+  end
+
+  def post_params2
+    params.require(:post).permit(:lunch_name).merge(user_id: current_user.id)
   end
 
   def move_to_index

@@ -1,8 +1,9 @@
 class Places::SearchesController < ApplicationController
 
-  def index
-    # 時間
+  def new
+    @search = Search.new
 
+    # 時間
     @place = Place.find(params[:placeid])
     @subplace = Subplace.find_by(place_id: params[:placeid])
     @date = params[:example1]
@@ -20,7 +21,7 @@ class Places::SearchesController < ApplicationController
     @lunch = params[:lunch]
     lunch_gurunaviapiHash = Place.gurunaviApi(@place, @lunch)
     @lunch_restaurant_name = lunch_gurunaviapiHash[:name]
-    @luncn_restaurant_text = lunch_gurunaviapiHash[:text]
+    @lunch_restaurant_text = lunch_gurunaviapiHash[:text]
     @lunch_restaurant_image = lunch_gurunaviapiHash[:image]
     @lunch_restaurant_address = lunch_gurunaviapiHash[:address]
     @lunch_restaurant_link = lunch_gurunaviapiHash[:link]
@@ -50,8 +51,21 @@ class Places::SearchesController < ApplicationController
       @section3 = mapapiHash2["routes"][0]["legs"][2]["duration"]["value"]
     end
   end
+
+  def create
+    # # 普通のformから
+    # Search.create(lunch_name: params[:lunch_name])
+    # redirect_to root_path
+
+    # form_withから
+    Search.create(search_params)
+    redirect_to root_path
+
+  end
+
+  private
+  def search_params
+    params.required(:search).permit(:lunch_name, :lunch_text, :lunch_image, :lunch_address, :lunch_link, :dinner_name, :dinner_text, :dinner_image, :dinner_address, :dinner_link, :section1, :section2, :section3, :section4, :place_id, :subplace_id, :user_id)
+  end
+
 end
-
-
-
-# ActionController::Parameters {"mainPlace"=>"1", "time1"=>"2020-01-26T12:00", "time2"=>"2020-01-26T22:00", "RadioGroup1"=>"20", "food"=>"イタリアン", "placeid"=>"1", "controller"=>"places/searches", "action"=>"index"} permitted: false>
