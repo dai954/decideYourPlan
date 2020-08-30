@@ -1,7 +1,7 @@
 class Places::SearchesController < ApplicationController
 
   def index
-    @searches = Search.all
+    @searches = Search.includes(:user).order("created_at DESC")
   end
 
   def new
@@ -63,6 +63,8 @@ class Places::SearchesController < ApplicationController
 
   def show
     @if_true = params[:if_true]
+
+    @search_date = params[:search_date]
     @search = Search.find(params[:id])
     @place = Place.find(@search.place_id)
     if @search.subplace_id
