@@ -68,7 +68,7 @@ Place.create!(
       name: '京都水族館',
       address: '京都府京都市下京区観喜寺町35−1',
       link: 'https://www.kyoto-aquarium.com/',
-      image: 'https://d1f5hsy4d47upe.cloudfront.net/de/dea53e3f06f9d34622d105d22df5ee7a_w.jpg',
+      image: 'https://d1f5hsy4d47upe.cloudfront.net/57/5738bc3ca6874533c6a0f43b3ea4c34f_w.jpg',
       prefecture: '京都府',
       description: '展示のほか、イルカパフォーマンスなどの毎日開催しているプログラムも充実。疲れた時にぴったりのマドラー付きドリンクはデートの思い出にもぴったり。'
     },

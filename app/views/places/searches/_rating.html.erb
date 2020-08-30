@@ -1,6 +1,6 @@
-<h1><%= "#{@place.name}" %>満喫プランをレビュー</h1>
+<h2><%= "#{@place.name}" %>満喫プランをレビュー</h2>
 
-<div class="rating-box mt-3">
+<div class="rating-box">
 <% if user_signed_in? && @subplace %>
   <%= form_with model: @search, url: places_searches_url, local: true do |f| %>
     <%= f.hidden_field :lunch_name, value: @lunch_restaurant_name %>
@@ -19,10 +19,13 @@
     <%= f.hidden_field :section3, value: @section3 %>
     <%= f.hidden_field :section4, value: @section4 %>
 
+    <%= f.hidden_field :went_date, value: @date %>
+
     <%= f.hidden_field :place_id, value: @place.id %>
     <%= f.hidden_field :subplace_id, value: @subplace.id %>
     <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.submit "保存", class: "button mt-3" %>
+    <%= f.text_area :plan_comment, placeholder: :コメント　＜おすすめポイントなど　（任意）＞, class: :plan_form__text %><br>
+    <%= f.submit "投稿", class: "button_post" %>
   <%end%>
   <% elsif user_signed_in? && !@subplace %>
   <%= form_with model: @search, url: places_searches_url, local: true do |f| %>
@@ -41,9 +44,12 @@
     <%= f.hidden_field :section2, value: @section2 %>
     <%= f.hidden_field :section3, value: @section3 %>
 
+    <%= f.hidden_field :went_date, value: @date %>
+
     <%= f.hidden_field :place_id, value: @place.id %>
     <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.submit "保存", class: "button mt-3" %>
+    <%= f.text_area :plan_comment, placeholder: :コメント　＜おすすめポイントなど　（任意）＞, class: :plan_form__text %><br>
+    <%= f.submit "投稿", class: "button_post" %>
   <%end%>
   <% elsif !user_signed_in? && @subplace %>
   <%= form_with model: @search, url: places_searches_url, local: true do |f| %>
@@ -63,10 +69,12 @@
     <%= f.hidden_field :section3, value: @section3 %>
     <%= f.hidden_field :section4, value: @section4 %>
 
+    <%= f.hidden_field :went_date, value: @date %>
 
     <%= f.hidden_field :place_id, value: @place.id %>
     <%= f.hidden_field :subplace_id, value: @subplace.id %>
-    <%= f.submit "保存", class: "button mt-3" %>
+    <%= f.text_area :plan_comment, placeholder: :コメント　＜おすすめポイントなど　（任意）＞, class: :plan_form__text %><br>
+    <%= f.submit "投稿", class: "button_post" %>
   <%end%>
   <% else %>
   <%= form_with model: @search, url: places_searches_url, local: true do |f| %>
@@ -85,8 +93,11 @@
     <%= f.hidden_field :section2, value: @section2 %>
     <%= f.hidden_field :section3, value: @section3 %>
 
+    <%= f.hidden_field :went_date, value: @date %>
+
     <%= f.hidden_field :place_id, value: @place.id %>
-    <%= f.submit "保存", class: "button mt-3" %>
+    <%= f.text_area :plan_comment, placeholder: :コメント　＜おすすめポイントなど　（任意）＞, class: :plan_form__text %><br>
+    <%= f.submit "投稿", class: "button_post" %>
   <%end%>
 <% end %>
 

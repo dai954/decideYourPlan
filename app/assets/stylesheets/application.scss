@@ -2,14 +2,12 @@
 @import "places";
 @import "reset";
 @import "places/index";
-@import "places/searches";
 @import "places/form";
 @import "places/place";
 @import "places/searchresult";
+@import "places/searches/new";
 @import "places/searches/index";
-@import "posts/new";
-@import "posts/edit";
-@import "posts/index";
+@import "places/searches/show";
 @import "users/new";
 @import "users/edit";
 @import "users/login";

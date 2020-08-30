@@ -15,6 +15,8 @@ class CreateSearches < ActiveRecord::Migration[5.2]
       t.integer :section2
       t.integer :section3
       t.integer :section4
+      t.text :plan_comment
+      t.string :went_date
       t.references :place, foreign_key: true
       t.references :subplace, foreign_key: true
       t.references :user, foreign_key: true

@@ -1,5 +1,6 @@
 class Place < ApplicationRecord
   has_many :subplaces
+  has_many :search
 
   def self.search(search)
     return Place.all unless search
@@ -54,8 +55,6 @@ class Place < ApplicationRecord
   end
 
 
-
-  # 実験
   def self.googleApi_waypoint(**waypoint_hash)
 
     origin = waypoint_hash[:origin]
@@ -86,6 +85,7 @@ class Place < ApplicationRecord
         # mapapihash1 = {map_duration: map_duration}
        return map_result
   end
+
 
   
   private

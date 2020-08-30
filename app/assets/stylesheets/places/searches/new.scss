@@ -1,0 +1,75 @@
+.destination-header{
+  .destination-title{
+    text-align: center;
+  }
+  #destination-detail{
+    text-align: center;
+  }
+}
+
+.contents{
+  margin: 0 150px;
+.content{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 100px;
+  .content-text{
+    width: 50%;
+    &__time{
+    margin: 0;
+    }
+    &__name{
+      font-weight: bold;
+      font-size: 20px;
+    }
+    &__link{
+      width: 100%;
+      text-align: right;
+      &__gurunavilink{
+        text-decoration: none;
+        color: gray;
+      }
+    }
+  }
+  .content-image{
+    width: 50%;
+    img{
+      width: 400px;
+      height: 300px;
+      // border-radius: 20px;
+   }
+  }
+  #content-image__right{
+    text-align: right;
+    margin-left: 15px;
+  }
+  #content-image__left{
+    text-align: left;
+    margin-right: 15px;
+  }
+ }
+}
+
+.plan_post{
+  margin-top: 100px;
+  text-align: center;
+  .rating-box{
+  .plan_form__text{
+    width: 50%;
+    height: 30vh;
+    border: 1px solid #d8d8d8;
+  }
+  .button_post{
+    width: 185px;
+    height: 40px;
+    display: inline-block;
+    margin-top: 5px;
+    border-radius: 20px;
+    border-style: none;
+    background-color: #FD7821;
+    color: white;
+    font-weight: bold;
+  }
+}
+}
+

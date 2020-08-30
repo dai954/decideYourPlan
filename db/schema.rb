@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 2020_08_23_090318) do
     t.integer "section2"
     t.integer "section3"
     t.integer "section4"
+    t.text "plan_comment"
+    t.string "went_date"
     t.bigint "place_id"
     t.bigint "subplace_id"
     t.bigint "user_id"

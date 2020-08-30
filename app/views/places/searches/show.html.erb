@@ -2,9 +2,11 @@
   <h1 class="destination-title"><%= "#{@place.name}" %>満喫プラン</h1>
   <div id="destination-detail">
     <div class="date">日付  <%= @date %></div>
+  <% if @if_true %>
     <div class="time_for">出発時間  <%= calc_departure_time(@date, @section1) %></div>
     到着時間  <%= display_lunch_arrival() %>
-    <br>
+  <% else %>
+  <%end%>
     ランチ  店名:<%= "#{@lunch_restaurant_name}"%> <%= display_lunch_time() %><br>
   <% if @subplace %>
     <%= "#{@place.name}" %> <%= place_stay_time(@date, @section2) %><br>
@@ -28,8 +30,17 @@
    <%= render partial: "dinnerRight"%>
   <%end%>
 
+<% unless @if_true %>
+  <div class="indivisual_form_container">
+    <form action="/places/searches/<%= @search.id%>" class = "indivisual_search_form">
+      <h3 class = "input_departure_date">出発地と日時を入力してこのプランを利用する</h3>
+        出発地*<br>
+      <input name="departure" type="text" class="address" placeholder="出発地の住所を入力してください" required /> <br>
+      お出かけの日時を入力してください*<br>
+      <input type="date" name="example1"> <br>
+      <input type="submit" value="このプランを利用する" class="submit" id="subForm">
+      <input type="hidden" name="if_true" value="go_to_if">
+    </form>
+  </div>
+<%end%>
 </div>
-
-<div class="plan_post">
-  <%= render partial: "rating"%>
-<div>
