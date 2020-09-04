@@ -1,4 +1,4 @@
 class Subplace < ApplicationRecord
-  belongs_to :place
+  has_many :places
   has_many :search
 end

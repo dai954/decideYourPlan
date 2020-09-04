@@ -1,5 +1,5 @@
 class Place < ApplicationRecord
-  has_many :subplaces
+  belongs_to :subplace, optional: true
   has_many :search
 
   def self.search(search)
